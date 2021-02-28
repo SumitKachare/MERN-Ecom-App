@@ -1,5 +1,4 @@
 import React from 'react'
-import { propTypes } from 'react-bootstrap/esm/Image'
 import PropTypes from 'prop-types'
 
 
@@ -27,9 +26,7 @@ const Rating = ({rating,reviewText}) => {
 }
 
 Rating.propTypes ={
-    rating : PropTypes.number.isRequired,
-    reviewText : PropTypes.string.isRequired,
-
+    reviewText : PropTypes.string.isRequired
 }
 
 export default Rating
