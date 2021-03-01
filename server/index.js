@@ -1,8 +1,9 @@
 import express from 'express'
 import dotenv from 'dotenv'
 
-import products from './products.js'
 import connectDB from './config/db.js'
+import productRoutes from './routes/productRoutes.js'
+import {notFound} from './middleware/errorMiddleware.js'
 
 
 const app = express()
@@ -18,13 +19,8 @@ app.get("/" , (req , res)=>{
     })
 })
 
-app.get('/api/products' , (req,res)=>{
-    res.send(products)
-})
-
-app.get('/api/products/:id' , (req,res)=>{
-    res.send(products.find(product => product._id === req.params.id))
-})
+app.use('/api/products' , productRoutes)
+app.use(notFound)
 
 app.listen( PORT, ()=>{
     console.log(`App Running on Port : ${PORT}`);
