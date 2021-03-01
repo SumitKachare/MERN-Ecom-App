@@ -7,6 +7,7 @@ import {PRODUCT_LIST_REQUEST,
     PRODUCT_DETAILS_ERROR} from '../reducers/types'
 
 export const listProducts = ()=> async (dispatch) =>{
+    
     try {
         dispatch({ type : PRODUCT_LIST_REQUEST})
 
